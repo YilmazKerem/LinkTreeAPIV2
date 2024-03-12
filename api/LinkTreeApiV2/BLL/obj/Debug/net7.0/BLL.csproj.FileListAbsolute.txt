@@ -17,3 +17,4 @@ D:\reacy\LinkedTree\api\LinkTreeApiV2\BLL\obj\Debug\net7.0\BLL.pdb
 D:\reacy\LinkedTree\api\LinkTreeApiV2\BLL\obj\Debug\net7.0\ref\BLL.dll
 D:\reacy\LinkedTree\api\LinkTreeApiV2\BLL\bin\Debug\net7.0\BLL.runtimeconfig.json
 D:\reacy\LinkedTree\api\LinkTreeApiV2\BLL\obj\Debug\net7.0\BLL.genruntimeconfig.cache
+D:\reacy\LinkedTree\api\LinkTreeApiV2\BLL\obj\Debug\net7.0\BLL.sourcelink.json

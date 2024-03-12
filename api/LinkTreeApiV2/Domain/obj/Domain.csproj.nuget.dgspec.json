@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {}
+    "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
+    "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
+        "projectUniqueName": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
+        "projectPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Kerem\\.nuget\\packages\\",
-        "outputPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\obj\\",
+        "outputPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kerem\\AppData\\Roaming\\NuGet\\NuGet.Config"

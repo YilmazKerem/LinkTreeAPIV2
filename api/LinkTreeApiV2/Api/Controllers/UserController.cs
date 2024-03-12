@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 
 
@@ -32,6 +33,7 @@ namespace api.Controller
            //Explenation
               Getting all existing users
        */
+        [Authorize]
         [Route("All")]
         [HttpGet]
         public IActionResult GetAllUsers()
@@ -41,7 +43,8 @@ namespace api.Controller
 
         /*
             //Explenation
-            Get user By ID
+            TO USE FOR EVERYONE
+            Get user By UserName
         */
         [Route("{UserName}")]
         [HttpGet]
@@ -105,6 +108,7 @@ namespace api.Controller
                  new Claim("Name", user.Name),
                  new Claim("UserName", user.UserName),
                  new Claim("Email", user.Email),
+                 new Claim("UserID", user.UserId.ToString())
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("A_CityTeacherEPSGroepProjectFun I have to write a longer Key I guess"));

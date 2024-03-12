@@ -83,3 +83,4 @@ D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\Api.pdb
 D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\Api.genruntimeconfig.cache
 D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\ref\Api.dll
 D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\bin\Debug\net7.0\BCrypt.Net-Next.dll
+D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\Api.sourcelink.json
