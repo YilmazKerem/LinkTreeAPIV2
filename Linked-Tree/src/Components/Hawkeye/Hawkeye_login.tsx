@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IUserLoginDTO } from '../../Api-Interfaces/Interface';
 
 
 
@@ -7,9 +8,58 @@ const Hawkeye = () =>
 {
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
+    const [WrongCredentials, setWrongCredentials] = useState<boolean>(false);
+    const [ShowToken, setShowToken] = useState<boolean>(false);
+    const [Token, setToken] = useState<boolean>(true);
 
-    const handleLogin = () =>
+    const URL = 'http://localhost:5262/api/User/';
+    const APICALL = 'Login';
+
+
+
+
+    const handleLogin = (event: React.FormEvent<HTMLInputElement>) =>
     {
+
+        event.preventDefault();
+
+        const UserLOginDetail: IUserLoginDTO = {
+            "userName": username,
+            "password": password
+        };
+
+
+        fetch(`${ URL }${ APICALL }`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(UserLOginDetail),
+        }).then(e => e.json()).then(response =>
+        {
+            if (response.status == "400" || response.status == "400") {
+                console.log("Failed");
+                setWrongCredentials(true);
+            }
+            else {
+                console.log(response);
+                console.log("Succesfull");
+                setShowToken(true);
+                setWrongCredentials(false);
+
+
+                localStorage.setItem('token', response.token);
+
+                setToken(localStorage.getItem('token'));
+
+                // setTimeout(() =>
+                // {
+
+                //     //navigate('/Completed');
+                // }, 1500);
+            }
+
+
+            console.log(response);
+        });
 
         console.log(username);
         //onLogin(username, password);
@@ -20,13 +70,17 @@ const Hawkeye = () =>
         <div className="flex justify-center items-center h-screen bg-purple-200">
             <div className="bg-white p-8 rounded-md shadow-md w-96">
                 <h2 className="text-3xl font-semibold mb-4 text-center text-purple-500">Hawkeye</h2>
-                <form className="space-y-4">
+                {WrongCredentials && <label htmlFor="text" className='font-bold text-red-500' >The given credentials are incorrect</label>}
+                {ShowToken && <label htmlFor="text" className='font-bold text-red-500' >{Token}</label>}
+
+                <form className="space-y-4" onSubmit={handleLogin}>
                     <div>
                         <label htmlFor="username" className="block text-gray-700">Username</label>
                         <input
                             type="text"
                             id="username"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-400 focus:ring-opacity-50"
+                            className=" placeholder:pl-1 p-2 bg-gray-200 mt-1 block w-full  border-gray-300 shadow-sm
+                             focus:border-purple-400 focus:ring focus:ring-purple-400  focus:ring-opacity-50 "
                             placeholder="Enter your username"
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
@@ -37,14 +91,15 @@ const Hawkeye = () =>
                         <input
                             type="password"
                             id="password"
-                            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-400 focus:ring focus:ring-purple-400 focus:ring-opacity-50"
+                            className=" placeholder:pl-1 p-2 bg-gray-200 mt-1 block w-full  border-gray-300 shadow-sm
+                             focus:border-purple-400 focus:ring focus:ring-purple-400  focus:ring-opacity-50 "
                             placeholder="Enter your password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
                     <button
-                        type="button"
+                        type="submit"
                         className="w-full py-2 px-4 border border-transparent rounded-md shadow-sm text-white bg-purple-500 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
                         onClick={handleLogin}
                     >

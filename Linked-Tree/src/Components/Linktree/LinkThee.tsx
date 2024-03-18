@@ -11,7 +11,7 @@ export default function LinkThee()
     const { uid } = useParams();
 
     const [Userinfo, setUserInfo] = useState<Userinfo>();
-    const URL = 'http://localhost:5275/api/User/';
+    const URL = 'http://localhost:5262/api/User/';
     useEffect(() =>
     {
         if (Userinfo == null) {
@@ -29,7 +29,7 @@ export default function LinkThee()
 
             }).catch(err =>
             {
-                console.log(err.message);
+                console.log(err);
                 console.log("No User found");
             });
         }
@@ -49,7 +49,7 @@ export default function LinkThee()
                             </div>
 
                             <div className='pt-8'>
-                                {Userinfo != null && Userinfo.linkTreeDetail.urls.map((a, index) => (
+                                {Userinfo != null && Userinfo.linkTreeDetail.urls2.map((a, index) => (
                                     <LinksBox key={index} linkedTreeInfo={Userinfo.linkTreeDetail} url={a.url} urldescription={a.urldescription} />
                                 ))
 

@@ -84,3 +84,6 @@ D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\Api.genruntimeconfig.
 D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\ref\Api.dll
 D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\bin\Debug\net7.0\BCrypt.Net-Next.dll
 D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\obj\Debug\net7.0\Api.sourcelink.json
+D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\bin\Debug\net7.0\Scrutor.dll
+D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.dll
+D:\reacy\LinkedTree\api\LinkTreeApiV2\Api\bin\Debug\net7.0\Swashbuckle.AspNetCore.Filters.Abstractions.dll

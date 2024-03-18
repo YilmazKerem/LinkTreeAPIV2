@@ -33,7 +33,7 @@ namespace api.Controller
            //Explenation
               Getting all existing users
        */
-        [Authorize]
+        //[Authorize]
         [Route("All")]
         [HttpGet]
         public IActionResult GetAllUsers()
@@ -68,7 +68,9 @@ namespace api.Controller
 
                 var Token = CreateToken(CreateUser);
 
-                return Ok(Token);
+                //ModelState.AddModelError("Bearer", Token);
+
+                return Ok(StatusCode(200));
             }
             catch (Exception e)
             {
@@ -80,16 +82,21 @@ namespace api.Controller
 
         [Route("Login")]
         [HttpPost]
-        public ActionResult<UserRegisterDTO> LoginUser([FromBody] UserLogin _User)
+        public ActionResult<TokenDTO> LoginUser([FromBody] UserLogin _User)
         {
 
             //Call Service
             try
             {
                 User LoginUserCredentials = _userService.LoginUser(_User.UserName, _User.Password);
-                var Token = CreateToken(LoginUserCredentials);
+                var GetToken = CreateToken(LoginUserCredentials);
 
-                return Ok(Token);
+                TokenDTO _token = new TokenDTO()
+                {
+                    Token = GetToken
+                };
+
+                return Ok(_token);
             }
             catch (Exception e)
             {
@@ -118,7 +125,7 @@ namespace api.Controller
             var token = new JwtSecurityToken(
                 signingCredentials: cred,
                 claims: _claims,
-                expires: DateTime.Now.AddDays(1)
+                expires: DateTime.Now.AddDays(-1)
 
             );
 

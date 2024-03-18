@@ -1,35 +1,88 @@
 import React, { useState } from 'react';
-
+import { json } from 'react-router-dom';
+import { IUserRegisterDTO } from '../../Api-Interfaces/Interface';
+import { useNavigate } from 'react-router-dom';
 
 
 const HawkRegister: React.FC = () =>
 {
     const [username, setUsername] = useState<string>('');
+    const [Name, setName] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [CheckPassword, setCheckPassword] = useState<string>('');
     const [Email, setEmail] = useState<string>('');
-    const [SamePassword, setSamePassword] = useState<boolean>(false);
+    const [WrongCredentials, setWrongCredentials] = useState<boolean>(false);
+    const [ButtonEnabled, setButtonEnabled] = useState<boolean>(true);
 
+
+    //const [Userinfo, setUserInfo] = useState<Userinfo>();
+    const URL = 'http://localhost:5262/api/User/';
+    const APICALL = 'Register';
+    const navigate = useNavigate();
 
     const handleRegister = (event: React.FormEvent<HTMLInputElement>) =>
     {
-        //Send request to backend.
-        //First Check of the Password are the same
         event.preventDefault();
 
-        if (password != CheckPassword) {
-            setSamePassword(true);
-        }
-        else (
-            setSamePassword(false)
-        );
+        const UserRegisterData: IUserRegisterDTO = {
+            "userName": username,
+            "name": Name,
+            "password": password,
+            "CheckPassword": CheckPassword,
+            "email": Email
+        };
+        //disabled={ButtonEnabled}
+
+
+        console.log(JSON.stringify(UserRegisterData));
+        fetch(`${ URL }${ APICALL }`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(UserRegisterData),
+        }).then(e => e.json()).then(response =>
+        {
+            setButtonEnabled(false);
+            if (response.status == "400" || response.status == "400") {
+                console.log("Failed");
+                setWrongCredentials(true);
+                setButtonEnabled(true);
+
+            }
+            else {
+                console.log(response);
+                console.log("Succesfull");
+                setWrongCredentials(false);
+                setTimeout(() =>
+                {
+
+                    navigate('/Completed');
+                    setButtonEnabled(true);
+
+
+                }, 2000);
+            }
+
+
+        }).catch((err) =>
+        {
+            console.log("ERROR" + err);
+        }).finally(() =>
+        {
+
+            //Return to created user page
+            console.log("Do Something");
+
+        });
 
     };
+
 
     return (
         <div className="flex justify-center items-center h-screen bg-purple-200">
             <div className="bg-white p-8 rounded-md shadow-md w-96">
                 <h2 className="text-3xl font-semibold mb-4 text-center text-purple-500">Create account</h2>
+                {WrongCredentials && <label htmlFor="text" className='font-bold text-red-500' >The given credentials are incorrect</label>}
+
                 <form className="space-y-4" onSubmit={handleRegister}>
 
                     <div>
@@ -44,6 +97,20 @@ const HawkRegister: React.FC = () =>
                             required
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="Name" className="block text-gray-700">Name</label>
+                        <input
+                            type="text"
+                            id="Name"
+                            className=" placeholder:pl-1 p-2 bg-gray-200 mt-1 block w-full  border-gray-300 shadow-sm
+                             focus:border-purple-400 focus:ring focus:ring-purple-400  focus:ring-opacity-50 
+                             "
+                            placeholder="Enter your Name"
+                            required
+                            value={Name}
+                            onChange={(e) => setName(e.target.value)}
                         />
                     </div>
                     <div>
@@ -82,7 +149,6 @@ const HawkRegister: React.FC = () =>
                             required
                             onChange={(e) => setCheckPassword(e.target.value)}
                         />
-                        {SamePassword && <label htmlFor="text" className='font-bold text-red-500' >Given passwords are not the same</label>}
                     </div>
                     <button
                         type="submit"
@@ -100,3 +166,4 @@ const HawkRegister: React.FC = () =>
 };
 
 export default HawkRegister;
+

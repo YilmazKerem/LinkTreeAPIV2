@@ -26,8 +26,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
-                "projectPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj"
+              "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj"
               }
             }
           }
@@ -96,14 +96,14 @@
         }
       }
     },
-    "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
+    "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
+        "projectPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Kerem\\.nuget\\packages\\",
-        "outputPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\obj\\",
+        "outputPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kerem\\AppData\\Roaming\\NuGet\\NuGet.Config"

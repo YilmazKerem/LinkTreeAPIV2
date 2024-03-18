@@ -3450,11 +3450,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\BLL\\BLL.csproj",
+      "projectUniqueName": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\BLL\\BLL.csproj",
+      "projectPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\Kerem\\.nuget\\packages\\",
-      "outputPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\BLL\\obj\\",
+      "outputPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kerem\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3472,8 +3472,8 @@
             "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\DAL\\DAL.csproj": {
               "projectPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\DAL\\DAL.csproj"
             },
-            "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
-              "projectPath": "d:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj"
+            "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj": {
+              "projectPath": "D:\\reacy\\LinkedTree\\api\\LinkTreeApiV2\\Domain\\Domain.csproj"
             }
           }
         }
