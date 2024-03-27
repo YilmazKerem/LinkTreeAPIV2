@@ -14,17 +14,19 @@ export default function UserinfoBox({ userInformation }: GetUserinfo)
 {
   return (
     <>
-      <div className=' w-2/4   m-auto pt-5  text-black'>
-        <div className=' w-32 h-32 m-auto'>
+      <div className=' m-auto pt-5  text-black max-w-2xl mx-auto flex flex-col gap-5'>
+        <div className='h-48 w-48 mx-auto'>
+          <div className='aspect-w-1 aspect-h-1'>
 
-          <img className='rounded-full border-4  border-white ' src="https://www.vintauto.com/wp-content/uploads/2018/07/BMW-e30-m3.jpg" alt="" />
+            <img className='rounded-full border-4 object-cover  object-center  border-white ' src="https://www.vintauto.com/wp-content/uploads/2018/07/BMW-e30-m3.jpg" alt="" />
+          </div>
         </div>
-        <div className='m-auto text-center mt-3 text-2xl font-bold'>
-          <h2>{userInformation.name}</h2>
+        <div className='m-auto text-center p-3 '>
+          <h2 className='font-bold text-3xl '>{userInformation.name}</h2>
 
-        </div>
-        <div className='m-auto text-center text-base mb-3'>
-          {userInformation.linkTreeDetail.description}
+          <div className=' text-2xl '>
+            {userInformation.linkTreeDetail.description}
+          </div>
         </div>
 
       </div>

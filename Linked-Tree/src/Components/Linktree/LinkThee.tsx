@@ -45,10 +45,10 @@ export default function LinkThee()
                         <h1>  Data is still loading  </h1>
                     ) : (
                         <div >
-                            <div className='pt-4'><UserinfoBox userInformation={Userinfo} />
+                            <div className=''><UserinfoBox userInformation={Userinfo} />
                             </div>
 
-                            <div className='pt-8'>
+                            <div className='flex flex-col gap-10'>
                                 {Userinfo != null && Userinfo.linkTreeDetail.urls2.map((a, index) => (
                                     <LinksBox key={index} linkedTreeInfo={Userinfo.linkTreeDetail} url={a.url} urldescription={a.urldescription} />
                                 ))

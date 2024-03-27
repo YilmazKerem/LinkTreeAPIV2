@@ -42,7 +42,8 @@ const HawkRegister: React.FC = () =>
         }).then(e => e.json()).then(response =>
         {
             setButtonEnabled(false);
-            if (response.status == "400" || response.status == "400") {
+            console.log(response);
+            if (response.status == "400" || response.statusCode == "400") {
                 console.log("Failed");
                 setWrongCredentials(true);
                 setButtonEnabled(true);

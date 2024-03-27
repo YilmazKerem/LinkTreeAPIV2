@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      boxShadow: {
+				custoum: "10px 10px 0px -1px rgba(0,0,0,1)",
+			},
       width: {
         '69em': '69em'
       },
@@ -14,6 +17,6 @@ export default {
       }
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 }
 

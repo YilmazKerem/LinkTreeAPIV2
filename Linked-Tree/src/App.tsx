@@ -9,6 +9,7 @@ import Hawkeye from './Components/Hawkeye/Hawkeye_login';
 import HawkRegister from './Components/Hawkeye/Hawkeye_Register';
 import HawkRegisterComplete from './Components/Hawkeye/Hawkeye_Register_Complete';
 import PrivateRoute from './Components/Utils/PrivateRoute';
+import AuthenticatedRouteLogin from './Components/Utils/AuthenticatedRouteLogin';
 
 function App()
 {
@@ -17,9 +18,14 @@ function App()
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/LinkTree/:uid' element={<LinkTreeMain />} />
-      <Route path='/Hawkeye' element={<Hawkeye />} />
-      <Route path='/hawkRegister' element={<HawkRegister />} />
-      <Route path='Completed' element={<HawkRegisterComplete />} />
+
+
+      <Route element={<AuthenticatedRouteLogin />}>
+        <Route path='Completed' element={<HawkRegisterComplete />} />
+        <Route path='/Hawkeye' element={<Hawkeye />} />
+        <Route path='/hawkRegister' element={<HawkRegister />} />
+      </Route>
+
 
 
       <Route element={<PrivateRoute />}>

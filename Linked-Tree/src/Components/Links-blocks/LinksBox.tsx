@@ -14,10 +14,11 @@ interface Getinfo
 
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function     LinksBox({ linkedTreeInfo, url, urldescription }: Getinfo)
+export default function LinksBox({ linkedTreeInfo, url, urldescription }: Getinfo)
 {
     return (
-        <div className='text-yellow-950 w-2/4 mx-auto h-17 rounded-full border-2 border-white hover:bg-yellow-50 duration-200 mt-3 hover:border-black'>
+        <div className={`w-80 sm:w-96 mx-auto bg-red-300 text-center text-xl font-bold py-3 shadow-custoum
+        border-4 border-black shadow-custom hover:shadow-none transition-all hover:translate-x-1 hover:translate-y-1`}>
 
             <a href={url} target='_blanc'>
                 <div className=' p-5 flex '>

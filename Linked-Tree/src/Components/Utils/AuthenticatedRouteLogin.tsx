@@ -4,21 +4,23 @@ import { useEffect, useState } from "react";
 
 
 
-function PrivateRoute()
+const AuthenticatedRouteLogin = () =>
 {
     //Read Token if it is still valid  - Token logic toepassen
     //Checking if the user is authenticated. If it is can travel to pages like Account;
 
 
     const [Token, GetToken] = useState<string>('');
-    const [Auth, GetAuth] = useState<boolean>(true);
+    const [Auth, GetAuth] = useState<boolean>(false);
 
     //const auth = { 'token': false };
 
 
     function loadDataOnlyOnce()
     {
-        if (localStorage.getItem('token') == null) {
+
+
+        if (localStorage.getItem('token') === null) {
             GetToken(String(localStorage.getItem('token')));
 
         }
@@ -27,9 +29,10 @@ function PrivateRoute()
             const Decode = jwtDecode(String(localStorage.getItem('token')));
             console.log(new Date(Decode.exp * 1000));
 
-
             if (new Date() > Decode.exp * 1000) {
+                console.log("Expired");
                 localStorage.removeItem('token');
+
                 GetAuth(false);
 
             }
@@ -38,20 +41,14 @@ function PrivateRoute()
     useEffect(() =>
     {
         loadDataOnlyOnce();
-        //console.log(localStorage.getItem('token'));
-        // console.log("Final " + Auth);
         console.log(Auth);
-
 
     });
 
     return (
-        //IF TRUE GO REQUESTED PAGE ELSE GO /HOME
-        // Auth ? <Outlet /> : <Navigate to='/Home' />
-        Auth
-
+        !Auth ? <Outlet /> : <Navigate to='/Account' />
     );
 };
 
 
-export default PrivateRoute;
+export default AuthenticatedRouteLogin;
