@@ -1,8 +1,19 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 export default function ProfileNavigation()
 {
+    const navigate = useNavigate();
+
+    function UserLogout()
+    {
+
+        localStorage.removeItem('token');
+        navigate(0);
+
+    }
+
+
     return (
         <>
             <div className='pt-5'>
@@ -19,6 +30,8 @@ export default function ProfileNavigation()
                           border-pink-900 border-solid border-2 justify-center items-center flex'
                             to="CreatUrl">Linktree</Link>
                     </div>
+
+                    <button className='bg-gray-600 px-6 py-2 rounded-full' onClick={UserLogout}>Logout</button>
                 </div>
             </div>
             <Outlet />

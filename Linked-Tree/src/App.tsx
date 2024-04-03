@@ -8,11 +8,14 @@ import MainProfile from './Components/Profile/Profile-MainPage/MainProfile';
 import Hawkeye from './Components/Hawkeye/Hawkeye_login';
 import HawkRegister from './Components/Hawkeye/Hawkeye_Register';
 import HawkRegisterComplete from './Components/Hawkeye/Hawkeye_Register_Complete';
-import PrivateRoute from './Components/Utils/PrivateRoute';
-import AuthenticatedRouteLogin from './Components/Utils/AuthenticatedRouteLogin';
+import RouteGuard from './Components/Utils/SecurityGuard';
+import { IsAuthenticated } from './Components/hooks/is-authenticated';
 
 function App()
 {
+
+  const isLoggedIn = IsAuthenticated();
+
 
   return (
     <Routes>
@@ -20,18 +23,14 @@ function App()
       <Route path='/LinkTree/:uid' element={<LinkTreeMain />} />
 
 
-      <Route element={<AuthenticatedRouteLogin />}>
-        <Route path='Completed' element={<HawkRegisterComplete />} />
-        <Route path='/Hawkeye' element={<Hawkeye />} />
-        <Route path='/hawkRegister' element={<HawkRegister />} />
-      </Route>
+      <Route path='Completed' element={<RouteGuard component={<HawkRegisterComplete />} routeTo={'/account'} isLoggedIn={!isLoggedIn} />} />
+      <Route path='/Hawkeye' element={<RouteGuard component={<Hawkeye />} routeTo={'/account'} isLoggedIn={!isLoggedIn} />} />
+      <Route path='/hawkRegister' element={<RouteGuard component={<HawkRegister />} routeTo={'/account'} isLoggedIn={!isLoggedIn} />} />
 
 
 
-      <Route element={<PrivateRoute />}>
-        <Route path='/Account' element={<MainProfile />} >
-          <Route path='CreatUrl' element={<CreateRedirect />} />
-        </Route>
+      <Route path='/Account' element={<RouteGuard component={<MainProfile />} routeTo={'/home'} isLoggedIn={isLoggedIn} />} >
+        <Route path='CreatUrl' element={<CreateRedirect />} />
       </Route>
 
 

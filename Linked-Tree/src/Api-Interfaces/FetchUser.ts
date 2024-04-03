@@ -4,7 +4,6 @@ function FetchUser()
         (response) => response.json()
     ).then((json) =>
     {
-        console.log(json);
         return json;
     }
     );

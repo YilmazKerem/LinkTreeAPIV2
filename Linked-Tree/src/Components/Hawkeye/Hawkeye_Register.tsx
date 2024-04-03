@@ -34,7 +34,6 @@ const HawkRegister: React.FC = () =>
         //disabled={ButtonEnabled}
 
 
-        console.log(JSON.stringify(UserRegisterData));
         fetch(`${ URL }${ APICALL }`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
@@ -42,25 +41,16 @@ const HawkRegister: React.FC = () =>
         }).then(e => e.json()).then(response =>
         {
             setButtonEnabled(false);
-            console.log(response);
             if (response.status == "400" || response.statusCode == "400") {
-                console.log("Failed");
                 setWrongCredentials(true);
                 setButtonEnabled(true);
 
             }
             else {
-                console.log(response);
-                console.log("Succesfull");
                 setWrongCredentials(false);
-                setTimeout(() =>
-                {
 
-                    navigate('/Completed');
-                    setButtonEnabled(true);
-
-
-                }, 2000);
+                navigate('/Completed');
+                setButtonEnabled(true);
             }
 
 
@@ -71,7 +61,6 @@ const HawkRegister: React.FC = () =>
         {
 
             //Return to created user page
-            console.log("Do Something");
 
         });
 

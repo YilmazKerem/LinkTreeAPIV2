@@ -22,15 +22,15 @@ export default function LinkThee()
 
             }).then(data =>
             {
-                console.log(data);
+                //console.log(data);
                 setUserInfo(data);
 
                 //console.log(data);
 
             }).catch(err =>
             {
-                console.log(err);
-                console.log("No User found");
+                //console.log(err);
+                //console.log("No User found");
             });
         }
     });

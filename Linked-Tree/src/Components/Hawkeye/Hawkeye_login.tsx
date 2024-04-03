@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IUserLoginDTO } from '../../Api-Interfaces/Interface';
+import { useNavigate } from "react-router-dom";
+import { tokenStore } from '../Utils/token-store';
 
 
 
@@ -11,6 +13,8 @@ const Hawkeye = () =>
     const [WrongCredentials, setWrongCredentials] = useState<boolean>(false);
     const [ShowToken, setShowToken] = useState<boolean>(false);
     const [Token, setToken] = useState<boolean>(true);
+
+    const Navigate = useNavigate();
 
     const URL = 'http://localhost:5262/api/User/';
     const APICALL = 'Login';
@@ -35,35 +39,20 @@ const Hawkeye = () =>
             body: JSON.stringify(UserLOginDetail),
         }).then(e => e.json()).then(response =>
         {
-            if (response.status == "400" || response.status == "400") {
-                console.log("Failed");
+            if (response.status == "400" || response.statusCode == "400") {
                 setWrongCredentials(true);
             }
             else {
-                console.log(response);
-                console.log("Succesfull");
                 setShowToken(true);
                 setWrongCredentials(false);
+                tokenStore.set(response.token);
 
-
-                localStorage.setItem('token', response.token);
-
-                setToken(localStorage.getItem('token'));
-
-                // setTimeout(() =>
-                // {
-
-                //     //navigate('/Completed');
-                // }, 1500);
+                Navigate('/account');
             }
 
 
-            console.log(response);
         });
 
-        console.log(username);
-        //onLogin(username, password);
-        console.log("klicked");
     };
 
     return (
