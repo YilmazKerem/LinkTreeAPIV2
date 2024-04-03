@@ -19,24 +19,6 @@ const AuthenticatedRouteLogin = () =>
     function loadDataOnlyOnce()
     {
 
-
-        if (localStorage.getItem('token') === null) {
-            GetToken(String(localStorage.getItem('token')));
-
-        }
-        if (localStorage.getItem('token') != null) {
-            GetAuth(true);
-            const Decode = jwtDecode(String(localStorage.getItem('token')));
-            console.log(new Date(Decode.exp * 1000));
-
-            if (new Date() > Decode.exp * 1000) {
-                console.log("Expired");
-                localStorage.removeItem('token');
-
-                GetAuth(false);
-
-            }
-        }
     }
     useEffect(() =>
     {
