@@ -46,6 +46,8 @@ namespace api.Controller
             TO USE FOR EVERYONE
             Get user By UserName
         */
+
+        [Authorize]
         [Route("{UserName}")]
         [HttpGet]
         public IActionResult GetUserById(string UserName)
@@ -105,6 +107,39 @@ namespace api.Controller
             }
             //return Ok();
         }
+
+
+        [Authorize]
+        [Route("{userName}")]
+        [HttpPost]
+        public ActionResult AddUrl([FromBody] string RedirectInformation, string userName)
+        {
+            try
+            {
+
+            }
+
+            catch (Exception e)
+            {
+
+            }
+
+            return NotFound();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         private string CreateToken(User user)

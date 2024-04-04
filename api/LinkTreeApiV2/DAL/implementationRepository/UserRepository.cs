@@ -56,12 +56,12 @@ namespace DAL.implementationRepository
         {
             //Check Or UserName Exist
 
-            if (_context.User.Where(p => p.UserName == _UserName).SingleOrDefault() != null)
+            if (_context.User.Where(p => p.UserName.ToLower() == _UserName.ToLower()).SingleOrDefault() != null)
             {
                 throw new ArgumentException("User already exists");
             }
 
-            if (_context.User.Where(p => p.Email == _Email).SingleOrDefault() != null)
+            if (_context.User.Where(p => p.Email.ToLower() == _Email.ToLower()).SingleOrDefault() != null)
             {
                 throw new ArgumentException("Existing User with this email");
             }
